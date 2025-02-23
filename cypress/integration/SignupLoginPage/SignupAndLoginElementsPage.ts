@@ -1,19 +1,82 @@
 
 class Signup_And_Login_Elements_Page{
+    // REGISTER
+    new_user_signup_form(){
+        return cy.get('.signup-form')
+    }
+
+    signup_name(){
+        return cy.get('[data-qa="signup-name"]')
+    }
+
+    signup_email(){
+        return cy.get('[data-qa="signup-email"]')
+    }
+
+    signup_button(){
+        return cy.get('[data-qa="signup-button"]')
+    }
+    
+    // REGISTER FORM 
+    enter_account_information_title(){
+        return cy.get('.title.text-center')
+    }
+
+    mr_radiobox(){
+        return cy.get('#id_gender1')
+    }
+
+    mrs_radiobox(){
+        return cy.get('#id_gender2')
+    }
+
+    name(){
+        return cy.get('#name')
+    }
+
+    email_form(){
+        return cy.get('#email')
+    }
+
+    password_form(){
+        return cy.get('#password')
+    }
+
+    day_of_birth(day: number){
+        return cy.get('#days').select(day)
+    }
+
+    month_of_birth(month : number){
+        return cy.get('#months').select(month)
+    }
+
+    year_of_birth(year : string){
+        return cy.get('#years').select(year)
+    }
+
+    newsletter_checkbox(){
+        return cy.get("#newsletter")
+    }
+
+    offers_receive_checkbox(){
+        return cy.get("#optin")
+    }
+
+    // LOGIN 
+    login_form(){
+        return cy.get('.login-form')
+    }
+
     email(){
         return cy.get('[data-qa="login-email"]')
     }
-    
+
     password(){
         return cy.get('[data-qa="login-password"]')
     }
 
     login_button(){
         return cy.get('.btn.btn-default')
-    }
-
-    login_form(){
-        return cy.get('.login-form')
     }
 
     login_logo(){
@@ -39,6 +102,7 @@ class Signup_And_Login_Elements_Page{
     account_deleted_text2(){
         return cy.get("p").eq(1)
     }
+
 
 }
 export default Signup_And_Login_Elements_Page

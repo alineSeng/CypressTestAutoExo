@@ -20,7 +20,7 @@ Then('Verify that home page is visible successfully', function() {
     
 })
 
-When('Click on Signup button', function() {
+When('Click on Signup and Login button', function() {
     go_To_Signup_And_Login_Page()
 })
 

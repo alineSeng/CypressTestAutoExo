@@ -6,7 +6,7 @@ Scenario: Login User with correct email and password
     When Navigate to url 
     Then Verify that home page is visible successfully
     
-    When Click on Signup button
+    When Click on Signup and Login button
     Then Verify Login to your account is visible
 
     When Enter correct email address and password

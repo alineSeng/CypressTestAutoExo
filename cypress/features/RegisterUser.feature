@@ -6,7 +6,7 @@ Feature: Register User
     When Navigate to url
     Then Verify that home page is visible successfully
     
-    When Click on Signup button
+    When Click on Signup and Login button
     Then Verify New User Signup! is visible
     
     When Enter name and email address
@@ -14,17 +14,17 @@ Feature: Register User
     Then Verify that ENTER ACCOUNT INFORMATION is visible
     
     When Fill details: Title, Name, Email, Password, Date of birth
-    And Select checkbox 'Sign up for our newsletter!
-    And Select checkbox 'Receive special offers from our partners!'
+    And Select checkbox Sign up for our newsletter!
+    And Select checkbox Receive special offers from our partners!
     And Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
     When Click on Create Account button
-    Then Verify that 'ACCOUNT CREATED!' is visible
+    Then Verify that ACCOUNT CREATED! is visible
     
     When Click on Continue button
-    Then Verify that 'Logged in as username' is visible
+    Then Verify that Logged in as username is visible
     
-    When Click 'Delete Account' button
-    Then Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
+    When Click Delete Account button
+    Then Verify that ACCOUNT DELETED! is visible and click Continue button
 
   
   
