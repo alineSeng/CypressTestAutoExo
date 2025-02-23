@@ -21,5 +21,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         return false; // Ignore l'erreur pour éviter qu'elle ne casse le test
     }
     return true;
+    
 });
 

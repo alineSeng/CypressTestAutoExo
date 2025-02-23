@@ -17,3 +17,7 @@ export const go_To_Cart_Page = () => {
 export const go_To_Signup_And_Login_Page = () => {
     home_Elements_Page.Signup_Login().click()
 }
+
+export const navigate_to_signup_and_login_page = () => {
+    cy.visit('https://automationexercise.com/login')
+}
