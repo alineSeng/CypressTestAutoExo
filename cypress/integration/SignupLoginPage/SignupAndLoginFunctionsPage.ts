@@ -2,7 +2,18 @@ import Signup_And_Login_Elements_Page from "./SignupAndLoginElementsPage"
 
 const signup_And_Login_Elements_Page = new Signup_And_Login_Elements_Page()
 const email = "dq@f.fr"
+const name = "lala"
 const password = "1234"
+const firstname = "lili"
+const lastname = "loulou"
+const company = "roro consulting company .ltn"
+const address = "55 bis"
+const address2 = "avenue de la liberty"
+const country = "India"
+const state = "Eldorado"
+const zipcode = "59000"
+const mobile = "12 34 56 78 09"
+
 
 // LOGIN USER
 export const login_form_is_visible = () => {
@@ -38,7 +49,7 @@ export const New_Use_Signup_is_visible = () => {
 }
 
 export const enter_name_and_email = () => {
-    signup_And_Login_Elements_Page.signup_name().type(email)
+    signup_And_Login_Elements_Page.signup_name().type(name)
     signup_And_Login_Elements_Page.signup_email().type(email)
 }
 
@@ -61,7 +72,7 @@ export const misses_Mrs = () => {
 
 export const fill_details_form = () => {
     signup_And_Login_Elements_Page.mrs_radiobox().click()
-    signup_And_Login_Elements_Page.name().should("have.value", email)
+    signup_And_Login_Elements_Page.name().should("have.value", name)
     signup_And_Login_Elements_Page.email_form().should("have.value", email)
     signup_And_Login_Elements_Page.password_form().type("1234")
     signup_And_Login_Elements_Page.day_of_birth(3)
@@ -77,4 +88,23 @@ export const select_newsletter_checkbox = () => {
 
 export const select_offers_receive_checkbox = () => {
     signup_And_Login_Elements_Page.offers_receive_checkbox().check()
+}
+
+export const fill_adress_info_details = () => {
+    signup_And_Login_Elements_Page.first_name().type(firstname)
+    signup_And_Login_Elements_Page.last_name().type(lastname)
+    signup_And_Login_Elements_Page.comapny().type(company)
+    signup_And_Login_Elements_Page.adress().type(address)
+    signup_And_Login_Elements_Page.adress2().type(address2)
+    signup_And_Login_Elements_Page.country(country)
+    signup_And_Login_Elements_Page.state().type(state)
+    signup_And_Login_Elements_Page.zipcode().type(zipcode)
+    signup_And_Login_Elements_Page.mobile_number().type(mobile)
+
+
+}
+
+export const click_on_Create_Account_button = () => {
+    signup_And_Login_Elements_Page.create_account_button().click()
+
 }

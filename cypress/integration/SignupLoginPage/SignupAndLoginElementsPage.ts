@@ -62,6 +62,51 @@ class Signup_And_Login_Elements_Page{
         return cy.get("#optin")
     }
 
+    first_name(){
+        return cy.get('[data-qa="first_name"]')
+    }
+
+    last_name(){
+        return cy.get('[data-qa="last_name"]')
+    }
+
+    comapny(){
+        return cy.get('[data-qa="company"]')
+    }
+
+    adress(){
+        return cy.get('#address1')
+    }
+
+    adress2(){
+        return cy.get('#address2')
+    }
+
+    country(country : string){
+        return cy.get('#country').select(country)
+    }
+
+    state(){
+        return cy.get('[data-qa="state"]')
+    }
+
+    city(){
+        return cy.get('[data-qa="city"]')
+    }
+
+    zipcode(){
+        return cy.get('[data-qa="zipcode"]')
+    }
+
+    mobile_number(){
+        return cy.get('[data-qa="mobile_number"]')
+    }
+    
+    create_account_button(){
+        return cy.get('[data-qa="create-account"]')
+    }
+
+
     // LOGIN 
     login_form(){
         return cy.get('.login-form')
