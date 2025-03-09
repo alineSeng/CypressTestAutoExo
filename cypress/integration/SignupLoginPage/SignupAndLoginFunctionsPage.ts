@@ -1,3 +1,4 @@
+import { navigate_to_signup_and_login_page } from "../HomePage/HomeFunctionsPage"
 import Signup_And_Login_Elements_Page from "./SignupAndLoginElementsPage"
 
 const signup_And_Login_Elements_Page = new Signup_And_Login_Elements_Page()
@@ -10,10 +11,16 @@ const company = "roro consulting company .ltn"
 const address = "55 bis"
 const address2 = "avenue de la liberty"
 const country = "India"
+const city = "Belli"
 const state = "Eldorado"
 const zipcode = "59000"
 const mobile = "12 34 56 78 09"
 
+const fake_email = "fake-@maimail"
+const fake_password = "fk"
+
+const email_to_check = "dq@f.fr"
+const password_to_check = "1234"
 
 // LOGIN USER
 export const login_form_is_visible = () => {
@@ -21,8 +28,30 @@ export const login_form_is_visible = () => {
 }
 
 export const enter_correct_email_and_password = () => {
-    signup_And_Login_Elements_Page.email().type(email)
-    signup_And_Login_Elements_Page.password().type(password)
+    signup_And_Login_Elements_Page.email().type(email);
+    signup_And_Login_Elements_Page.password().type(password);
+    click_on_login_button()
+    // if (email !== email_to_check) {
+    //     if(password !== password_to_check) {
+    //         console.log("Inccorect password!")
+            
+    //     } else {
+    //         create_account()
+    //     }
+    // }           
+    
+}
+
+export const enter_incorrect_email_and_password = () => {
+    signup_And_Login_Elements_Page.email().type(fake_email);
+    signup_And_Login_Elements_Page.password().type(fake_password);
+    click_on_login_button()        
+    
+}
+    
+export const message_login_error = () => {
+    cy.wait(1000)
+    signup_And_Login_Elements_Page.message_login_error().should('exist').should('be.visible').contains('Your email or password is incorrect!')
 }
 
 export const click_on_login_button = () => {
@@ -31,11 +60,20 @@ export const click_on_login_button = () => {
 
 export const logged_in_as_username_is_visible = () => {
     signup_And_Login_Elements_Page.login_logo().should('be.visible')
-    signup_And_Login_Elements_Page.logged_user_name().should('be.visible').contains(email)
+    signup_And_Login_Elements_Page.logged_user_name().should('be.visible').contains(name)
 }
 
 export const click_on_delete_account = () => {
     signup_And_Login_Elements_Page.delete_account_button().should('be.visible').click()
+}
+
+export const click_on_logout_button = () => {
+    signup_And_Login_Elements_Page.logout_button().click()
+}
+
+export const verify_that_user_is_navigated_to_the_login_page = () => {
+    cy.url().should("include", "/login")
+    New_Use_Signup_is_visible()
 }
 
 export const check_ACCOUNT_DELETED_is_visible = () => {
@@ -98,6 +136,7 @@ export const fill_adress_info_details = () => {
     signup_And_Login_Elements_Page.adress2().type(address2)
     signup_And_Login_Elements_Page.country(country)
     signup_And_Login_Elements_Page.state().type(state)
+    signup_And_Login_Elements_Page.city().type(city)
     signup_And_Login_Elements_Page.zipcode().type(zipcode)
     signup_And_Login_Elements_Page.mobile_number().type(mobile)
 
@@ -106,5 +145,31 @@ export const fill_adress_info_details = () => {
 
 export const click_on_Create_Account_button = () => {
     signup_And_Login_Elements_Page.create_account_button().click()
+
+}
+
+export const check_Account_Created = () => {
+    signup_And_Login_Elements_Page.account_created().should('be.visible').contains("Account Created!")
+
+}
+
+export const click_on_continue_button = () => {
+    signup_And_Login_Elements_Page.continue_button().click()
+}
+
+//CREATE ACCOUNT
+export const create_account = () => {
+    // Création de compte si l'email n'existe pas
+    New_Use_Signup_is_visible();
+    enter_name_and_email();
+    click_on_signup_button();
+    enter_account_information_title_is_visible();
+    misses_Mrs();
+    fill_details_form();
+    select_newsletter_checkbox();
+    select_offers_receive_checkbox();
+    fill_adress_info_details();
+    click_on_Create_Account_button();
+    check_Account_Created();
 
 }

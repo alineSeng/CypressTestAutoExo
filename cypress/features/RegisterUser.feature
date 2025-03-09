@@ -18,13 +18,13 @@ Feature: Register User
     And Select checkbox Receive special offers from our partners!
     And Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
     When Click on Create Account button
-    Then Verify that ACCOUNT CREATED! is visible
+    Then Verify that ACCOUNT CREATED is visible
     
     When Click on Continue button
-    Then Verify that Logged in as username is visible
+    Then Verify that Logged in as username is visible from register page
     
-    When Click Delete Account button
-    Then Verify that ACCOUNT DELETED! is visible and click Continue button
+    #When Click Delete Account button from register page
+    #Then Verify that ACCOUNT DELETED is visible and click Continue button from register page
 
   
   

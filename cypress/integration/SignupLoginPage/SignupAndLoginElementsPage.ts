@@ -106,6 +106,20 @@ class Signup_And_Login_Elements_Page{
         return cy.get('[data-qa="create-account"]')
     }
 
+    // ACCOUNT CREATED
+    account_created(){
+        return cy.get('.title.text-center')
+    }
+    
+    continue_button(){
+        return cy.get('.btn.btn-primary')
+        //return cy.get('[data-qa="continue-button"]')
+    }
+
+    logout_button(){
+        return cy.get("a[href='/logout']", {timeout: 10000}).should('be.visible')
+    }
+    
 
     // LOGIN 
     login_form(){
@@ -132,6 +146,14 @@ class Signup_And_Login_Elements_Page{
         return cy.get('ul.nav.navbar-nav li a b')
     }
 
+  
+
+
+    message_login_error(){
+        return cy.get('#form > div > div > div.col-sm-4.col-sm-offset-1 > div > form > p')
+
+    }   
+    
     delete_account_button(){
         return cy.get("a[href='/delete_account']")
     }
@@ -147,6 +169,8 @@ class Signup_And_Login_Elements_Page{
     account_deleted_text2(){
         return cy.get("p").eq(1)
     }
+
+    
 
 
 }
